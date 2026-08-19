@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Trek</title>
+</head>
+<body>
+
+<h1>Update Trek</h1>
+
+<form method="POST">
+
+    Slots:
+    <input type="number" name="slots" value="{{ trek.slots }}">
+    <br><br>
+
+    Status:
+    <select name="status">
+        <option value="Open">Open</option>
+        <option value="Closed">Closed</option>
+        <option value="Completed">Completed</option>
+    </select>
+
+    <br><br>
+
+    <input type="submit" value="Update">
+
+</form>
+
+</body>
+</html>

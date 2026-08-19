@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}View Users{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">All Users</h2>
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-dark">
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Blacklist</th>
+    
+</tr>
+</thead>
+
+<tbody>
+
+{% for u in users %}
+<tr>
+    <td>{{ u.id }}</td>
+    <td>{{ u.name }}</td>
+    <td>{{ u.email }}</td>
+    <td>{{ u.status }}</td>
+    
+
+    <td>
+        <a href="/blacklist_user/{{ u.id }}" class="btn btn-danger btn-sm">
+            Blacklist
+        </a>
+    </td>
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<a href="/logout" class="btn btn-secondary">Logout</a>
+
+{% endblock %}

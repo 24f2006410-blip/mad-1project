@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}View Staff{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">All Staff</h2>
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-dark">
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Approve</th>
+    <th>Blacklist</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for s in staff %}
+<tr>
+
+<td>{{ s.id }}</td>
+<td>{{ s.name }}</td>
+<td>{{ s.email }}</td>
+<td>{{ s.status }}</td>
+
+<td>
+{% if s.status == "pending" %}
+<a href="/approve_staff/{{ s.id }}" class="btn btn-success btn-sm">
+Approve
+</a>
+{% else %}
+Approved
+{% endif %}
+</td>
+
+<td>
+<a href="/blacklist_staff/{{ s.id }}" class="btn btn-danger btn-sm">
+Blacklist
+</a>
+</td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<a href="/logout" class="btn btn-secondary">Logout</a>
+
+{% endblock %}

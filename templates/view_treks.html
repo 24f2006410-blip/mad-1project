@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}All Treks{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">All Treks</h2>
+
+<form method="GET" class="row g-3 mb-4">
+
+    <div class="col-md-3">
+        <input type="text" name="search" class="form-control"
+               placeholder="Search Trek Name">
+    </div>
+
+    <div class="col-md-2">
+        <input type="submit" value="Search" class="btn btn-primary">
+    </div>
+
+</form>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Difficulty</th>
+            <th>Duration</th>
+            <th>Slots</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Book</th>
+            <th>Assign Staff</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for trek in treks %}
+
+    <tr>
+
+        <td>{{ trek.id }}</td>
+        <td>{{ trek.name }}</td>
+        <td>{{ trek.location }}</td>
+        <td>{{ trek.difficulty }}</td>
+        <td>{{ trek.duration }}</td>
+        <td>{{ trek.slots }}</td>
+        <td>{{ trek.status }}</td>
+
+        <td>
+            <a href="/edit_trek/{{ trek.id }}" class="btn btn-warning btn-sm">Edit</a>
+        </td>
+
+        <td>
+            <a href="/delete_trek/{{ trek.id }}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+
+        <td>
+            <a href="/book_trek/{{ trek.id }}" class="btn btn-success btn-sm">Book</a>
+        </td>
+
+        <td>
+            <a href="/assign_staff/{{ trek.id }}" class="btn btn-info btn-sm">Assign</a>
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<a href="/logout" class="btn btn-secondary">Logout</a>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assign Staff</title>
+</head>
+
+<body>
+
+<h1>Assign Staff</h1>
+
+<h3>{{ trek.name }}</h3>
+
+<form method="POST">
+
+    <label>Select Staff</label>
+
+    <select name="staff_id">
+
+        {% for s in staff %}
+
+        <option value="{{ s.id }}">
+            {{ s.name }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <br><br>
+
+    <input type="submit" value="Assign">
+
+</form>
+
+</body>
+</html>

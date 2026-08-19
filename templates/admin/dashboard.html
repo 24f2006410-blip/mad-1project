@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Admin Dashboard</h2>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card text-center mb-3">
+            <div class="card-body">
+                <h5>Total Treks</h5>
+                <h3>{{ total_treks }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center mb-3">
+            <div class="card-body">
+                <h5>Total Users</h5>
+                <h3>{{ total_users }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center mb-3">
+            <div class="card-body">
+                <h5>Total Staff</h5>
+                <h3>{{ total_staff }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center mb-3">
+            <div class="card-body">
+                <h5>Total Bookings</h5>
+                <h3>{{ total_bookings }}</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="mt-4">
+
+    <a href="/create_trek" class="btn btn-danger m-1">Create Trek</a>
+
+    <a href="/view_treks" class="btn btn-success m-1">View Treks</a>
+
+    <a href="/view_users" class="btn btn-warning m-1">View Users</a>
+
+    <a href="/view_staff" class="btn btn-info m-1">View Staff</a>
+
+    <a href="/view_bookings" class="btn btn-secondary m-1">View Bookings</a>
+
+    <a href="/logout" class="btn btn-danger m-1">Logout</a>
+
+</div>
+
+{% endblock %}

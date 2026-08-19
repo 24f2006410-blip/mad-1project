@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Staff Dashboard{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Staff Dashboard</h2>
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-dark">
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Status</th>
+    <th>Slots</th>
+    <th>Update</th>
+    <th>Participants</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for trek in treks %}
+<tr>
+
+<td>{{ trek.id }}</td>
+<td>{{ trek.name }}</td>
+<td>{{ trek.location }}</td>
+<td>{{ trek.status }}</td>
+<td>{{ trek.slots }}</td>
+
+<td>
+<a href="/staff_edit_trek/{{ trek.id }}" class="btn btn-warning btn-sm">
+Update
+</a>
+</td>
+
+<td>
+<a href="/participants/{{ trek.id }}" class="btn btn-primary btn-sm">
+View
+</a>
+</td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<a href="/logout" class="btn btn-danger">Logout</a>
+
+{% endblock %}

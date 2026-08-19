@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}All Bookings{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">All Bookings</h2>
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-dark">
+<tr>
+    <th>ID</th>
+    <th>User ID</th>
+    <th>Trek ID</th>
+    <th>Status</th>
+    <th>Date</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for b in bookings %}
+<tr>
+    <td>{{ b.id }}</td>
+    <td>{{ b.user_id }}</td>
+    <td>{{ b.trek_id }}</td>
+    <td>{{ b.status }}</td>
+    <td>{{ b.booking_date }}</td>
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<a href="/logout" class="btn btn-secondary">Logout</a>
+
+{% endblock %}
